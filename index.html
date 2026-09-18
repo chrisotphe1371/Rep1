@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Badminton Player Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">B</div>
+          <div>
+            <p class="eyebrow">Base de joueurs</p>
+            <h1>Badminton Finder</h1>
+          </div>
+        </div>
+        <button class="primary-btn" type="button">+ Ajouter un profil</button>
+      </header>
+
+      <main class="layout">
+        <aside class="sidebar">
+          <section class="panel">
+            <h2>Recherche</h2>
+            <label class="field">
+              <span>Nom / club / pays</span>
+              <input id="searchInput" type="text" placeholder="Ex. Chen, Paris, Japon..." />
+            </label>
+
+            <div class="filter-grid">
+              <label class="field">
+                <span>Pays</span>
+                <select id="countryFilter">
+                  <option value="all">Tous</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Catégorie</span>
+                <select id="categoryFilter">
+                  <option value="all">Toutes</option>
+                  <option value="Simple messieurs">Simple messieurs</option>
+                  <option value="Simple dames">Simple dames</option>
+                  <option value="Double messieurs">Double messieurs</option>
+                  <option value="Double dames">Double dames</option>
+                  <option value="Double mixte">Double mixte</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="stats-box">
+              <div>
+                <span class="label">Joueurs</span>
+                <strong id="playerCount">0</strong>
+              </div>
+              <div>
+                <span class="label">Niveau moyen</span>
+                <strong id="avgRating">0</strong>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+        <section class="content">
+          <div class="hero">
+            <div>
+              <p class="eyebrow accent">Sélection de talents</p>
+              <h2>Trouvez le bon joueur pour votre équipe</h2>
+            </div>
+            <div class="hero-pill" id="resultsTag">12 profils</div>
+          </div>
+
+          <div id="playerList" class="player-list" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="playerCardTemplate">
+      <article class="player-card">
+        <div class="avatar" data-role="avatar"></div>
+        <div class="card-body">
+          <div class="row-between">
+            <div>
+              <h3 data-role="name"></h3>
+              <p class="subtitle" data-role="club"></p>
+            </div>
+            <span class="rating-badge" data-role="rating"></span>
+          </div>
+
+          <div class="meta-grid">
+            <div>
+              <span class="meta-label">Pays</span>
+              <strong data-role="country"></strong>
+            </div>
+            <div>
+              <span class="meta-label">Catégorie</span>
+              <strong data-role="category"></strong>
+            </div>
+            <div>
+              <span class="meta-label">Main</span>
+              <strong data-role="hand"></strong>
+            </div>
+          </div>
+
+          <div class="tags" data-role="tags"></div>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
